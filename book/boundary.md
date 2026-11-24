@@ -18,6 +18,6 @@ streams, Windows support, installation/authentication automation, and publicatio
 remain outside this first slice. Commit, push, merge, release, repository settings,
 and ending the Porting Phase retain their separate authorization boundaries.
 
-The lifecycle remains Porting Phase and the engine working mode remains
-prototyping. Accepted product anchors state intended guarantees, not proof that
+The lifecycle remains Porting Phase and the engine working mode is `port`.
+Accepted product anchors state intended guarantees, not proof that
 every criterion has been verified or that delivery is complete.

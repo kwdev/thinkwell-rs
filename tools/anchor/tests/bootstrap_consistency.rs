@@ -11,9 +11,20 @@ fn validate(read: impl Fn(&str) -> Option<String>) -> Result<(), String> {
     let agents = get("AGENTS.md")?;
     if !agents
         .lines()
-        .any(|line| line.starts_with("1. Run `cargo anchor contract`"))
+        .any(|line| line.starts_with("1. Run `cargo anchor contract --config anchorbook.toml`"))
     {
-        return Err("AGENTS.md must start by invoking `cargo anchor contract`".into());
+        return Err("AGENTS.md must retrieve the contract with --config anchorbook.toml".into());
+    }
+    let configuration = get("anchorbook.toml")?;
+    let project = configuration
+        .split_once("[project]")
+        .map(|(_, rest)| rest.split('[').next().unwrap_or_default())
+        .ok_or("anchorbook.toml must declare the project phase")?;
+    if !project
+        .lines()
+        .any(|line| line.trim() == "phase = \"port\"")
+    {
+        return Err("The port bootstrap requires project.phase = port".into());
     }
     let summary = get("book/SUMMARY.md")?;
     for chapter in [GUIDE, LIFECYCLE, DELIVERY] {
@@ -114,6 +125,13 @@ fn detects_broken_bootstrap_relationships() {
     // changing files or invoking/installing the engine.
     for (path, from, to) in [
         ("AGENTS.md", "cargo anchor contract", "anchorbook contract"),
+        ("AGENTS.md", " --config anchorbook.toml", ""),
+        (
+            "anchorbook.toml",
+            "phase = \"port\"",
+            "phase = \"prototyping\"",
+        ),
+        ("anchorbook.toml", "[project]", "[other]"),
         (
             "book/SUMMARY.md",
             "](working-on-the-project.md)",

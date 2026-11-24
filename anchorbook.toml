@@ -1,7 +1,7 @@
 schema-version = 1
 
 [project]
-phase = "prototyping"
+phase = "port"
 
 [book]
 source = "book"

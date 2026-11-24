@@ -1,6 +1,6 @@
 # Agent startup
 
-1. Run `cargo anchor contract` from the repository root. The launcher checks and
+1. Run `cargo anchor contract --config anchorbook.toml` from the repository root. The launcher checks and
    installs the pinned engine automatically; see `CONTRIBUTING.md` for prerequisites.
 2. Read `README.md`, `CONTRIBUTING.md`, and `book/working-on-the-project.md`.
 3. Read `book/SUMMARY.md` and every listed chapter in full from this checkout.

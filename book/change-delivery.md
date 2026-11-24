@@ -18,6 +18,10 @@ review agent may perform it. When an agent implemented the change, prefer a
 different agent or a fresh context for review. A second human reviewer is not required.
 
 Review the complete diff: code, tests, Book records, evidence, and roadmap updates.
+Before review, incorporate agreed discoveries into their owning design chapters
+and reconcile affected authority, anchors, and roadmap work. Replace duplicated
+roadmap definitions with links to that design; readers must be able to understand
+the target without reconstructing research or milestone history.
 Check accepted authority, scope, criterion coverage, limitations, and the tested
 revision. Record the reviewer or context, significant findings and their resolution
 in the PR and owning roadmap evidence. Material follow-up changes require renewed

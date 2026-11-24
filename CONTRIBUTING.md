@@ -22,10 +22,13 @@ mdbook --version
 The toolchain file selects Rust 1.100.0, including formatting and Clippy. It is a
 development baseline, not an MSRV declaration. Keep `Cargo.lock` version controlled.
 The expected engine identity is
-`anchorbook 0.1.0 (9689b00416fd577bfb68a02f1fa310f6088404cf)`; mdBook is `0.5.4`.
+`anchorbook 0.1.0 (8165d599878da6089f367af0d97e88be45631e46)`; mdBook is `0.5.4`.
 `cargo anchor` verifies the repository-local engine on every run and automatically
 installs/replaces it from the exact revision when needed. The pin and expected
 identity live in `tools/anchor/src/main.rs`. No ambient anchorbook is invoked.
+The pin includes the experimental Port phase from the engine's `port` branch.
+Configured contract retrieval supplies its port guidance. The full SHA keeps
+installation independent of later changes to that branch.
 Git, rustup/Cargo, and network access are needed for first use or recovery; a
 matching local engine is reused without installation. The alias uses a small,
 dependency-free development binary, not a Thinkwell runtime dependency.
@@ -37,7 +40,7 @@ new shell. No global Rust default change is required.
 After installing tools and setting PATH, run:
 
 ```sh
-cargo anchor contract
+cargo anchor contract --config anchorbook.toml
 cargo fmt --all -- --check
 cargo check --workspace --all-targets --locked
 cargo clippy --workspace --all-targets --locked -- -D warnings

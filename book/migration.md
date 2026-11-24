@@ -1,6 +1,9 @@
 # Porting research (migration-only)
 
 This chapter is temporary migration evidence during the [Porting Phase](lifecycle.md).
+The source is the [TypeScript Thinkwell repository](https://github.com/dherman/thinkwell);
+this repository develops the Rust target. The inspected revisions below identify
+research inputs and do not establish an ongoing compatibility baseline.
 Observed legacy behavior is not an accepted Thinkwell requirement. This chapter
 includes inherited scaffolding research and the fresh API review below; neither
 selects a compatibility baseline. No ongoing revision tracking is required.

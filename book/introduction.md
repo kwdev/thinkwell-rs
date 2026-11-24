@@ -11,8 +11,9 @@ assigned work, results, and gaps. Acceptance, implementation, and verification
 are distinct.
 
 The current lifecycle state is the [Porting Phase](lifecycle.md). The engine's
-working mode remains `prototyping` in `anchorbook.toml`; it is not a numbered
-product lifecycle. Temporary source research lives in [migration-only material](migration.md).
+working mode is `port` in `anchorbook.toml`, so configured contract retrieval
+includes the port procedure. Temporary source research lives in
+[migration-only material](migration.md).
 
 ## Licensing
 

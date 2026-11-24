@@ -7,8 +7,10 @@ This repository is the future of Thinkwell. During porting, distinguish the lega
 TypeScript implementation from the emerging Rust implementation. After transition,
 unqualified Thinkwell refers to this project and its Rust implementation.
 
-The engine working mode remains `prototyping` in `anchorbook.toml`. It governs
-Anchor working expectations, independently of the named project lifecycle.
+The engine working mode is `port` in `anchorbook.toml`. Configured contract
+retrieval supplies the common guidance plus the port procedure. The lifecycle
+gate below continues to govern when this project's port may end; selecting an
+engine phase does not establish its completion.
 Historical Phase 0 records describe completed scaffolding, not a product phase.
 Future phases may be named as needed without a numbered sequence.
 

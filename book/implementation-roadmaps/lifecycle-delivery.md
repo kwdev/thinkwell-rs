@@ -2,11 +2,13 @@
 
 Roadmap identifier: `lifecycle-delivery`.
 
-Current integration state: completed work was delivered through owner-merged
+Current integration state: milestone 1 was delivered through owner-merged
 [PR #2](https://github.com/dherman/thinkwell-rs/pull/2). See the
 [shared integration evidence](first-product-slice.md#integrated-completion).
-Earlier local-stage evidence and pending-delivery statements below are historical;
+Its earlier local-stage evidence and pending-delivery statements are historical;
 they retain their tested scope and do not describe current integration status.
+[Milestone 2](#lifecycle-delivery-2) is a separate port-contract experiment on the
+fork's `port-phase-adoption` branch, pending upstream review and integration.
 
 Goal: extend the completed scaffold with owner-approved lifecycle and delivery
 policy, without product functionality or a detailed port plan.
@@ -193,3 +195,46 @@ integrated: the latter was included in owner-merged PR #2 at
 `1b21c83b9b713690d953df72244c7f9fcf8244ce`. PR #1 review and CI evidence remain
 above; [PR #2 delivery evidence](first-product-slice.md#integrated-completion)
 closes the synchronization gap. No lifecycle transition is implied.
+
+## Milestone 2. Adopt the engine's Port working contract {#lifecycle-delivery-2}
+
+**Outcome:** The configured phase activates reusable port guidance, including engineer questions, source reconstruction, coherent target design, and implementation and transition boundaries.
+
+**Status:** In progress
+
+**Identifier:** `lifecycle-delivery-2`
+
+**Dependencies:** Milestone 1; Anchor Book `8165d599878da6089f367af0d97e88be45631e46`, published on its experimental `port` branch. The fork owner requested this bounded adoption on a branch of `kwdev/thinkwell-rs`; upstream approval and merge remain separate.
+
+**Design basis:** `R-reproducible-checks`, `R-temporary-migration-reference`, `R-porting-transition`, `R-reviewed-delivery`, and the existing [lifecycle](../lifecycle.md) and [change-delivery procedure](../change-delivery.md).
+
+**Tasks**
+
+- [x] Pin the published engine revision and select `port` in the authoritative configuration.
+- [x] Retrieve configured guidance at agent startup and reconcile current phase descriptions and pinned authoring references.
+- [x] Identify the source repository in migration evidence and make incorporation into owning design explicit in the delivery procedure.
+- [x] Extend bootstrap checks, run by existing CI, to detect loss of configured Port startup.
+- [x] Run applicable local checks and record their exact scope and results.
+- [x] Review the complete change and record findings and remaining integration requirements.
+- [ ] Obtain upstream owner review, pass required CI, and integrate before declaring durable completion.
+
+### Completion criteria
+
+#### Port contract and bootstrap {#lifecycle-delivery-2-contract}
+
+The repository launcher installs the exact published revision, configured retrieval includes the Port section once, and the consistency checks reject missing configured retrieval or a different project phase. The common contract remains available for configuration diagnosis.
+
+- **Anchor coverage:** None: development tooling and working guidance; no product anchor changes.
+- **Evidence:** Passed locally on 2026-11-24 on `port-phase-adoption`, based on `59b8bd56e64cfd5a0318673421dd176316987c07` plus this adoption change. The real launcher installed `8165d599878da6089f367af0d97e88be45631e46` from GitHub with Rust 1.100.0 and reported the exact pinned identity. `cargo anchor contract --config anchorbook.toml` included the Port section exactly once; the common command remained available separately. `cargo test -p anchor-runner --locked` passed all five launcher and consistency tests, including seeded loss of the configuration argument or the Port phase, and the existing CI entry-point relationships.
+
+#### Coherent guidance and delivery {#lifecycle-delivery-2-guidance}
+
+Active instructions agree on Port and the engine pin, preserve the existing human-controlled lifecycle gate, and direct accepted discoveries into owning design before roadmap implementation. The Book passes structure and rendering checks. Review and integration are recorded without treating this tooling change as product verification or completion of the port.
+
+- **Anchor coverage:** None: project guidance and delivery policy.
+- **Evidence:** `cargo fmt --all -- --check`, `cargo check --workspace --all-targets --locked`, `cargo clippy --workspace --all-targets --locked -- -D warnings`, and `cargo test --workspace --locked` passed on Rust 1.100.0; the workspace suite ran 100 tests including doctests, with no failures or ignored tests. The Python capability-probe regression passed one test. `RUSTDOCFLAGS="-D warnings" cargo doc --workspace --no-deps --locked`, `cargo anchor check --config anchorbook.toml`, mdBook 0.5.4's build, and whitespace checking passed. Anchor Book's existing rendered-output acceptance, directed at this Book, checked 37 complete records and 1,056 local links. Separate scheduler, sentiment, unminifier, website, and live-agent checks were not rerun for this tooling and guidance change.
+- **Review:** After implementation, the implementing agent reviewed the complete diff, installed-engine output, phase descriptions, pin references, bootstrap failure cases, and rendered records and links. Current guidance consistently selects Port; historical test revisions remain historical. Existing product authority and the human-approved lifecycle transition gate are preserved. No independent-agent or upstream owner approval is claimed. CI, upstream owner review, merge, and synchronization remain outstanding; this change does not establish that existing product design is already fully consolidated.
+
+### Completion record
+
+Pending upstream owner review, required CI, merge, and evidence synchronization.
