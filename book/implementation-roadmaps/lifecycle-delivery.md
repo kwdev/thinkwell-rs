@@ -204,7 +204,7 @@ closes the synchronization gap. No lifecycle transition is implied.
 
 **Identifier:** `lifecycle-delivery-2`
 
-**Dependencies:** Milestone 1; Anchor Book `3bd59b7c1e352e94bafcf133dc05c9a7560a48df`, published on its experimental `port` branch. The fork owner requested this bounded adoption on a branch of `kwdev/thinkwell-rs`; upstream approval and merge remain separate.
+**Dependencies:** Milestone 1; Anchor Book `fb7badc8f3bb763f9ba89d6c15c8701faefe1e46`, published on its `programmatic-verification` branch. The fork owner requested this bounded adoption on a branch of `kwdev/thinkwell-rs`; upstream approval and merge remain separate.
 
 **Design basis:** `R-reproducible-checks`, `R-temporary-migration-reference`, `R-porting-transition`, `R-reviewed-delivery`, and the existing [lifecycle](../lifecycle.md) and [change-delivery procedure](../change-delivery.md).
 
@@ -224,8 +224,9 @@ closes the synchronization gap. No lifecycle transition is implied.
 
 The repository launcher installs the exact published revision, configured retrieval includes the Port section once, and the consistency checks reject missing configured retrieval or a different project phase. The common contract remains available for configuration diagnosis.
 
-- **Anchor coverage:** None: development tooling and working guidance; no product anchor changes.
-- **Evidence:** The current contract pin, `3bd59b7c1e352e94bafcf133dc05c9a7560a48df`, installed through the real launcher from GitHub with Rust 1.100.0 and reported its exact identity. On 2026-11-24, based on `908829df02c71257dc853a98febb6599b004d95b` plus this pin update, configured retrieval included both Design before roadmaps and Port exactly once, with no repository-specific repair instructions. All five launcher and consistency tests, formatting, whitespace, structural/v1 checking, and mdBook 0.5.4 rendering passed. The earlier adoption used `8165d599878da6089f367af0d97e88be45631e46` and also verified common-contract retrieval. The product checks below are that initial adoption's evidence; they were not rerun for this contract-only pin update. A fresh-session design trial remains unexecuted.
+- **Anchor coverage:** None: engine pin and schema compatibility; no product behavior change.
+- **Evidence:** The current engine pin is `fb7badc8f3bb763f9ba89d6c15c8701faefe1e46`. This update, based on `d8133a57afe8a4588a1ca50da0f45671fc76e25a`, retains configured Port and design-before-roadmaps guidance and requires programmatic anchor verification. Seven existing criteria retain their executable test obligations; review directions move into project guidance and no historical review is relabeled as a test pass. The real launcher installed this revision from GitHub with Rust 1.100.0 and reported its exact identity. Configured retrieval includes Port, Design before roadmaps, and programmatic-verification guidance once each. All five bootstrap tests, formatting, whitespace, structural checking, and mdBook 0.5.4 rendering pass. A separate export of only the staged pin/compatibility change also passes bootstrap and Book checks. Rendered acceptance on the working Book checks 37 records and 1,230 local links; that working tree includes separate design-reconciliation edits, which are not included in this commit. The preceding pin `3bd59b7c1e352e94bafcf133dc05c9a7560a48df` passed the five launcher/consistency tests and Book checks; the product results below remain the initial adoption's evidence. The separate design-reconciliation work is outside this pin update.
+
 
 #### Coherent guidance and delivery {#lifecycle-delivery-2-guidance}
 

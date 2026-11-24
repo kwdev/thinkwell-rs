@@ -68,33 +68,44 @@ to its tested state; a green structural check establishes no product behavior.
 ## Pinned method references
 
 The installed engine is pinned to
-[`3bd59b7c1e352e94bafcf133dc05c9a7560a48df`](https://github.com/anchor-book/anchor-book/tree/3bd59b7c1e352e94bafcf133dc05c9a7560a48df),
+[`fb7badc8f3bb763f9ba89d6c15c8701faefe1e46`](https://github.com/anchor-book/anchor-book/tree/fb7badc8f3bb763f9ba89d6c15c8701faefe1e46),
 with mdBook 0.5.4. Use the formats from that revision:
 
-- [Anchor definitions](https://github.com/anchor-book/anchor-book/blob/3bd59b7c1e352e94bafcf133dc05c9a7560a48df/book/design/anchor-definitions.md)
-- [Authority definitions](https://github.com/anchor-book/anchor-book/blob/3bd59b7c1e352e94bafcf133dc05c9a7560a48df/book/design/authority-definitions.md)
-- [Verification](https://github.com/anchor-book/anchor-book/blob/3bd59b7c1e352e94bafcf133dc05c9a7560a48df/book/design/verification.md)
-- [Roadmap format](https://github.com/anchor-book/anchor-book/blob/3bd59b7c1e352e94bafcf133dc05c9a7560a48df/book/implementation-roadmaps/index.md)
-- [Working guidance and implementation status](https://github.com/anchor-book/anchor-book/blob/3bd59b7c1e352e94bafcf133dc05c9a7560a48df/book/working-on-anchor-book.md)
+- [Anchor definitions](https://github.com/anchor-book/anchor-book/blob/fb7badc8f3bb763f9ba89d6c15c8701faefe1e46/book/design/anchor-definitions.md)
+- [Authority definitions](https://github.com/anchor-book/anchor-book/blob/fb7badc8f3bb763f9ba89d6c15c8701faefe1e46/book/design/authority-definitions.md)
+- [Verification](https://github.com/anchor-book/anchor-book/blob/fb7badc8f3bb763f9ba89d6c15c8701faefe1e46/book/design/verification.md)
+- [Roadmap format](https://github.com/anchor-book/anchor-book/blob/fb7badc8f3bb763f9ba89d6c15c8701faefe1e46/book/implementation-roadmaps/index.md)
+- [Working guidance and implementation status](https://github.com/anchor-book/anchor-book/blob/fb7badc8f3bb763f9ba89d6c15c8701faefe1e46/book/working-on-anchor-book.md)
 
 The CLI implements `check`, `contract`, `md`, `verify`, and `proof`, plus help
 and version. The first three serve this scaffold. `check` evaluates structural/v1;
 the mdBook preprocessor also validates record syntax, authority references, and
 roadmap identifiers and coverage. Neither establishes semantic correctness or
-milestone completion. Criteria can require tests, proofs, and reviews; their
-declarations are obligations, not evidence.
+milestone completion. Criteria can require tests and proofs; their declarations
+are obligations, not evidence. Review is not a verification method or proof guard.
 
 Do not assume designed features are implemented. This revision has no initialization,
 materialization, RFD template command/validation, cross-Book support, or `[engine]`
 configuration. Use schema 1 and manual authoring. No RFD section or verification
-runners are configured here: product anchors use test/review criteria with evidence recorded in the roadmap.
+runners are configured here: product anchors use test criteria with evidence
+recorded in the roadmap.
 Do not add nextest, Verus, or mutation tooling merely because upstream uses them.
 
-This pin includes the experimental Port phase and configured contract delivery
-from the engine's `port` branch. The full revision, rather than the moving branch,
-is the installation target. If configuration prevents contract retrieval, use
+This pin includes the Port phase, configured contract delivery, and
+programmatic-only verification from the engine's `programmatic-verification`
+branch. The full revision, rather than the moving branch, is the installation target. If configuration prevents contract retrieval, use
 `cargo anchor contract` for the common diagnostic guidance, fix the reported
 configuration problem, and retry the configured command before port work.
+
+## Verification and review
+
+Anchor satisfaction requires executable tests or proofs. Existing compiler,
+runtime, transport, and schema checks retain their scope; no historical review
+counts as a passing test. Report any behavior without an executable check as a
+verification gap. Review ownership and protocol boundaries against exclusions,
+event disclosure, lifecycle behavior, and live examples with both supported agents
+through the ordinary design and change workflow. Those judgments cannot satisfy
+or gate anchor verification.
 
 ## Review boundaries
 

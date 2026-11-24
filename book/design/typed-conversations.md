@@ -6,37 +6,37 @@ ACP. The following properties govern its supported scope.
 > **`A-scoped-turn-ownership`** (accepted): **Scoped callbacks belong to their execution**
 > Property: Only an active execution accesses its bound callbacks; application borrows end when execution is consumed or dropped. Overlapping mutable session executions are rejected.
 > Authority: `D-provisional-scoped-turns`
-> - Criterion `behavior` [test, review]: Runtime tests and compiler probes establish non-Send borrowing across await, restored caller access, and rejection of overlapping mutable use. Review ownership and protocol boundaries against the stated exclusions.
+> - Criterion `behavior` [test]: Runtime tests and compiler probes establish non-Send borrowing across await, restored caller access, and rejection of overlapping mutable use.
 
 > **`A-typed-turn-completion`** (accepted): **Typed results require completed turns**
 > Property: Success requires supported-schema validation and conversion, a valid candidate, normal terminal response, and settled local callbacks. Result types may change between turns in one conversation.
 > Authority: `R-per-turn-result-types`
-> - Criterion `behavior` [test, review]: Tests cover changing types, invalid/corrected/exhausted submissions, missing and duplicate results, abnormal stops, transport loss, and cancellation or callback overlap after candidate acceptance. Review ownership and protocol boundaries against the stated exclusions.
+> - Criterion `behavior` [test]: Tests cover changing types, invalid/corrected/exhausted submissions, missing and duplicate results, abnormal stops, transport loss, and cancellation or callback overlap after candidate acceptance.
 
 > **`A-turn-envelope-routing`** (accepted): **Submitted turn identifiers control callback routing**
 > Property: Missing, malformed, and nonmatching identifiers cannot select or invoke current callbacks. Revoked queues cannot reach replacement callbacks. This authenticates no causal origin when a sender supplies the current identifier.
 > Authority: `D-provisional-scoped-turns`
-> - Criterion `behavior` [test, review]: Deterministic HTTP tests inject stale and malformed calls during a replacement turn, assert zero mutation, and verify valid calls and revoked queues. Review ownership and protocol boundaries against the stated exclusions.
+> - Criterion `behavior` [test]: Deterministic HTTP tests inject stale and malformed calls during a replacement turn, assert zero mutation, and verify valid calls and revoked queues.
 
 > **`A-cancelled-session-invalidation`** (accepted): **Cancelled sessions cannot resume**
 > Property: Cancelling or abandoning a started turn permanently invalidates that session and its dedicated connection; no further prompt or implicit history reset occurs. Dropping an unpolled execution sends no work.
 > Authority: `D-initial-cancel-invalidation`
-> - Criterion `behavior` [test, review]: Tests distinguish unpolled and started drops, reject reuse, and inspect peer prompt counts. Review ownership and protocol boundaries against the stated exclusions.
+> - Criterion `behavior` [test]: Tests distinguish unpolled and started drops, reject reuse, and inspect peer prompt counts.
 
 > **`A-owned-resource-cleanup`** (accepted): **Owned resources have bounded cleanup**
 > Property: Drop revokes local access and signals existing cleanup infrastructure without async waiting or spawning. Awaited shutdown reports a bounded outcome; owned-process guards force termination on driver/runtime loss on supported macOS and Linux hosts. No detached-descendant or asynchronous application-destructor guarantee is made.
 > Authority: `D-reviewed-api-baseline`
-> - Criterion `behavior` [test, review]: Instrumented child-process tests observe exit/reaping and listener closure for success, constructor failure, early errors, drops, awaited shutdown and runtime teardown on both supported runtime flavors. Review ownership and protocol boundaries against the stated exclusions.
+> - Criterion `behavior` [test]: Instrumented child-process tests observe exit/reaping and listener closure for success, constructor failure, early errors, drops, awaited shutdown and runtime teardown on both supported runtime flavors.
 
 > **`A-supported-contract-boundary`** (accepted): **Advertised supported contracts are enforced**
 > Property: Unsupported contracts fail before prompting. Supported input, serialized tool output, and final-result constraints are validated independently of Serde conversion.
 > Authority: `D-derived-contracts`
-> - Criterion `behavior` [test, review]: Contract tests cover every supported keyword and unsupported dialects/references/constraints, malformed input and output, and located preflight errors. Review ownership and protocol boundaries against the stated exclusions.
+> - Criterion `behavior` [test]: Contract tests cover every supported keyword and unsupported dialects/references/constraints, malformed input and output, and located preflight errors.
 
 > **`A-progress-observation`** (accepted): **Optional observation preserves typed execution**
 > Property: Observers execute locally within the polled execution and can borrow non-Send state. Progress is optional, bounded and best-effort, with explicit loss reporting. Permission decisions, validation, tool replies and authoritative typed results do not depend on progress delivery. Dropping observation revokes its queue; observer unwinding initiates owned-connection cleanup. Agent reports are not authenticated originating-turn or callback-execution evidence.
 > Authority: `R-progressive-control`
-> - Criterion `behavior` [test, review]: Compiler and runtime tests cover borrowed observers/tools, unchanged typed success/failure, queue limits and loss, polling fairness, callback panic/drop, capture release, and route isolation. Review event disclosure, lifecycle boundaries and live examples with both supported agents.
+> - Criterion `behavior` [test]: Compiler and runtime tests cover borrowed observers/tools, unchanged typed success/failure, queue limits and loss, polling fairness, callback panic/drop, capture release, and route isolation.
 
 ## Initial support
 
