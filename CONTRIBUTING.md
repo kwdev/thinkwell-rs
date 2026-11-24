@@ -22,7 +22,7 @@ mdbook --version
 The toolchain file selects Rust 1.100.0, including formatting and Clippy. It is a
 development baseline, not an MSRV declaration. Keep `Cargo.lock` version controlled.
 The expected engine identity is
-`anchorbook 0.1.0 (8165d599878da6089f367af0d97e88be45631e46)`; mdBook is `0.5.4`.
+`anchorbook 0.1.0 (3bd59b7c1e352e94bafcf133dc05c9a7560a48df)`; mdBook is `0.5.4`.
 `cargo anchor` verifies the repository-local engine on every run and automatically
 installs/replaces it from the exact revision when needed. The pin and expected
 identity live in `tools/anchor/src/main.rs`. No ambient anchorbook is invoked.

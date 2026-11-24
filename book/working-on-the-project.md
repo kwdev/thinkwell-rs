@@ -68,14 +68,14 @@ to its tested state; a green structural check establishes no product behavior.
 ## Pinned method references
 
 The installed engine is pinned to
-[`8165d599878da6089f367af0d97e88be45631e46`](https://github.com/anchor-book/anchor-book/tree/8165d599878da6089f367af0d97e88be45631e46),
+[`3bd59b7c1e352e94bafcf133dc05c9a7560a48df`](https://github.com/anchor-book/anchor-book/tree/3bd59b7c1e352e94bafcf133dc05c9a7560a48df),
 with mdBook 0.5.4. Use the formats from that revision:
 
-- [Anchor definitions](https://github.com/anchor-book/anchor-book/blob/8165d599878da6089f367af0d97e88be45631e46/book/design/anchor-definitions.md)
-- [Authority definitions](https://github.com/anchor-book/anchor-book/blob/8165d599878da6089f367af0d97e88be45631e46/book/design/authority-definitions.md)
-- [Verification](https://github.com/anchor-book/anchor-book/blob/8165d599878da6089f367af0d97e88be45631e46/book/design/verification.md)
-- [Roadmap format](https://github.com/anchor-book/anchor-book/blob/8165d599878da6089f367af0d97e88be45631e46/book/implementation-roadmaps/index.md)
-- [Working guidance and implementation status](https://github.com/anchor-book/anchor-book/blob/8165d599878da6089f367af0d97e88be45631e46/book/working-on-anchor-book.md)
+- [Anchor definitions](https://github.com/anchor-book/anchor-book/blob/3bd59b7c1e352e94bafcf133dc05c9a7560a48df/book/design/anchor-definitions.md)
+- [Authority definitions](https://github.com/anchor-book/anchor-book/blob/3bd59b7c1e352e94bafcf133dc05c9a7560a48df/book/design/authority-definitions.md)
+- [Verification](https://github.com/anchor-book/anchor-book/blob/3bd59b7c1e352e94bafcf133dc05c9a7560a48df/book/design/verification.md)
+- [Roadmap format](https://github.com/anchor-book/anchor-book/blob/3bd59b7c1e352e94bafcf133dc05c9a7560a48df/book/implementation-roadmaps/index.md)
+- [Working guidance and implementation status](https://github.com/anchor-book/anchor-book/blob/3bd59b7c1e352e94bafcf133dc05c9a7560a48df/book/working-on-anchor-book.md)
 
 The CLI implements `check`, `contract`, `md`, `verify`, and `proof`, plus help
 and version. The first three serve this scaffold. `check` evaluates structural/v1;

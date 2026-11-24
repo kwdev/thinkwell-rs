@@ -204,7 +204,7 @@ closes the synchronization gap. No lifecycle transition is implied.
 
 **Identifier:** `lifecycle-delivery-2`
 
-**Dependencies:** Milestone 1; Anchor Book `8165d599878da6089f367af0d97e88be45631e46`, published on its experimental `port` branch. The fork owner requested this bounded adoption on a branch of `kwdev/thinkwell-rs`; upstream approval and merge remain separate.
+**Dependencies:** Milestone 1; Anchor Book `3bd59b7c1e352e94bafcf133dc05c9a7560a48df`, published on its experimental `port` branch. The fork owner requested this bounded adoption on a branch of `kwdev/thinkwell-rs`; upstream approval and merge remain separate.
 
 **Design basis:** `R-reproducible-checks`, `R-temporary-migration-reference`, `R-porting-transition`, `R-reviewed-delivery`, and the existing [lifecycle](../lifecycle.md) and [change-delivery procedure](../change-delivery.md).
 
@@ -225,7 +225,7 @@ closes the synchronization gap. No lifecycle transition is implied.
 The repository launcher installs the exact published revision, configured retrieval includes the Port section once, and the consistency checks reject missing configured retrieval or a different project phase. The common contract remains available for configuration diagnosis.
 
 - **Anchor coverage:** None: development tooling and working guidance; no product anchor changes.
-- **Evidence:** Passed locally on 2026-11-24 on `port-phase-adoption`, based on `59b8bd56e64cfd5a0318673421dd176316987c07` plus this adoption change. The real launcher installed `8165d599878da6089f367af0d97e88be45631e46` from GitHub with Rust 1.100.0 and reported the exact pinned identity. `cargo anchor contract --config anchorbook.toml` included the Port section exactly once; the common command remained available separately. `cargo test -p anchor-runner --locked` passed all five launcher and consistency tests, including seeded loss of the configuration argument or the Port phase, and the existing CI entry-point relationships.
+- **Evidence:** The current contract pin, `3bd59b7c1e352e94bafcf133dc05c9a7560a48df`, installed through the real launcher from GitHub with Rust 1.100.0 and reported its exact identity. On 2026-11-24, based on `908829df02c71257dc853a98febb6599b004d95b` plus this pin update, configured retrieval included both Design before roadmaps and Port exactly once, with no repository-specific repair instructions. All five launcher and consistency tests, formatting, whitespace, structural/v1 checking, and mdBook 0.5.4 rendering passed. The earlier adoption used `8165d599878da6089f367af0d97e88be45631e46` and also verified common-contract retrieval. The product checks below are that initial adoption's evidence; they were not rerun for this contract-only pin update. A fresh-session design trial remains unexecuted.
 
 #### Coherent guidance and delivery {#lifecycle-delivery-2-guidance}
 
